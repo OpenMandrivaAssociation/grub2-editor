@@ -21,6 +21,8 @@ BuildRequires:	cmake(KF5Auth)
 BuildRequires:	cmake(KF5ConfigWidgets)
 BuildRequires:	cmake(KF5KIO)
 BuildRequires:	cmake(KF5Solid)
+BuildRequires:	grub2
+BuildRequires:	os-prober
 
 %description
 A KDE Control Module for configuring the GRUB2 bootloader.
