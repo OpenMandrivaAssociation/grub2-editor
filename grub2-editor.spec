@@ -30,7 +30,11 @@ Unofficial KF5 port.
 
 %prep
 %setup -q
-%cmake_kde5
+%cmake_kde5 -DGRUB_INSTALL_EXE=%{_sbindir}/grub2-install \
+			-DGRUB_MKCONFIG_EXE=%{_sbindir}/grub2-mkconfig \
+            -DGRUB_PROBE_EXE=%{_sbindir}/grub2-probe \
+            -DGRUB_SET_DEFAULT_EXE=%{_sbindir}/grub2-set-default \
+            -DGRUB_MAKE_PASSWD_EXE=%{_bindir}/grub2-mkpasswd-pbkdf2
 
 %build
 %ninja -C build
