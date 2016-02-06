@@ -23,6 +23,8 @@ BuildRequires:	cmake(KF5KIO)
 BuildRequires:	cmake(KF5Solid)
 BuildRequires:	grub2
 BuildRequires:	os-prober
+Obsoletes:	kcm-grub2 <= 0.6.4-8
+Provides:	kcm-grub2 = 0.6.4-9
 
 %description
 A KDE Control Module for configuring the GRUB2 bootloader.
@@ -30,11 +32,17 @@ Unofficial KF5 port.
 
 %prep
 %setup -q
-%cmake_kde5 -DGRUB_INSTALL_EXE=%{_sbindir}/grub2-install \
-			-DGRUB_MKCONFIG_EXE=%{_sbindir}/grub2-mkconfig \
-            -DGRUB_PROBE_EXE=%{_sbindir}/grub2-probe \
-            -DGRUB_SET_DEFAULT_EXE=%{_sbindir}/grub2-set-default \
-            -DGRUB_MAKE_PASSWD_EXE=%{_bindir}/grub2-mkpasswd-pbkdf2
+%cmake_kde5 -DGRUB_INSTALL_EXE="%{_sbindir}/grub2-install" \
+	    -DGRUB_MKCONFIG_EXE="%{_sbindir}/grub2-mkconfig" \
+            -DGRUB_PROBE_EXE="%{_sbindir}/grub2-probe" \
+            -DGRUB_SET_DEFAULT_EXE="%{_sbindir}/grub2-set-default" \
+            -DGRUB_MAKE_PASSWD_EXE="%{_bindir}/grub2-mkpasswd-pbkdf2" \
+            -DGRUB_MENU="/boot/grub2/grub.cfg" \
+            -DGRUB_ENV="/boot/grub2/grubenv" \
+            -DGRUB_CONFIG="%{_sysconfdir}/default/grub" \
+            -DGRUB_MEMTEST="%{_sysconfdir}/grub.d/20_memtest86+" \
+            -DGRUB_CONFIGDIR="%{_sysconfdir}/grub.d" \
+            -DGRUB_SECURITY="01_header_passwd"
 
 %build
 %ninja -C build
