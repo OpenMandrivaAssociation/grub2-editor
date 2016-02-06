@@ -22,7 +22,6 @@ BuildRequires:	cmake(KF5ConfigWidgets)
 BuildRequires:	cmake(KF5KIO)
 BuildRequires:	cmake(KF5Solid)
 BuildRequires:	grub2
-BuildRequires:	os-prober
 Obsoletes:	kcm-grub2 <= 0.6.4-8
 Provides:	kcm-grub2 = 0.6.4-9
 
@@ -50,4 +49,12 @@ Unofficial KF5 port.
 %install
 %ninja_install -C build
 
-%files
+%find_lang kcm-grub2
+
+%files -f kcm-grub2.lang
+%{_sysconfdir}/dbus-1/system.d/org.kde.kcontrol.kcmgrub2.conf
+%{_libdir}/libexec/kauth/kcmgrub2helper
+%{_libdir}/qt5/plugins/kcm_grub2.so
+%{_datadir}/dbus-1/system-services/org.kde.kcontrol.kcmgrub2.service
+%{_datadir}/kservices5/kcm_grub2.desktop
+%{_datadir}/polkit-1/actions/org.kde.kcontrol.kcmgrub2.policy
