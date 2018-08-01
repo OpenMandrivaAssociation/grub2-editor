@@ -1,0 +1,30 @@
+diff -up grub2-editor-0.7.1/src/convertDlg.cpp.omv~ grub2-editor-0.7.1/src/convertDlg.cpp
+--- grub2-editor-0.7.1/src/convertDlg.cpp.omv~	2018-08-01 20:55:51.346454979 +0200
++++ grub2-editor-0.7.1/src/convertDlg.cpp	2018-08-01 20:55:58.143507762 +0200
+@@ -25,6 +25,7 @@
+ #include <QFileDialog>
+ #include <QMimeType>
+ #include <QMimeDatabase>
++#include <QStyle>
+ //ImageMagick
+ #include <Magick++.h>
+ 
+diff -up grub2-editor-0.7.1/src/userDlg.cpp.omv~ grub2-editor-0.7.1/src/userDlg.cpp
+--- grub2-editor-0.7.1/src/userDlg.cpp.omv~	2018-08-01 20:56:09.500595993 +0200
++++ grub2-editor-0.7.1/src/userDlg.cpp	2018-08-01 20:56:31.167764438 +0200
+@@ -22,6 +22,8 @@
+ #include <KMessageBox>
+ //Qt
+ #include <QPushButton>
++#include <QStyle>
++#include <QRegExpValidator>
+ //Ui
+ #include "ui_userDlg.h"
+ 
+@@ -100,4 +102,4 @@ bool UserDialog::requireEncryption()
+         return true;
+     else
+         return false;
+-}
+\ No newline at end of file
++}
