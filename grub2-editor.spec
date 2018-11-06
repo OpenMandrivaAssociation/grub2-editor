@@ -22,6 +22,8 @@ BuildRequires:	cmake(KF5ConfigWidgets)
 BuildRequires:	cmake(KF5KIO)
 BuildRequires:	cmake(KF5Solid)
 BuildRequires:	grub2
+BuildRequires:	grub2-extra
+Requires:	grub2-extra
 Obsoletes:	kcm-grub2 <= 0.6.4-8
 Provides:	kcm-grub2 = 0.6.4-9
 
