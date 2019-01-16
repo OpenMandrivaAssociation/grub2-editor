@@ -6,7 +6,7 @@ Version:	0.8.1
 Release:	2
 License:	GPLv2
 Group:		Graphical desktop/KDE
-URL:		https://github.com/cris-b/grub2-editor
+URL:		https://github.com/maz-1/grub2-editor
 # git clone https://github.com/cris-b/grub2-editor.git
 # git archive --format=tar --prefix grub2-editor-0.5.8-$(date +%Y%m%d)/ HEAD | xz -vf > grub2-editor-0.5.8-$(date +%Y%m%d).tar.xz
 
@@ -43,7 +43,7 @@ Unofficial KF5 port.
             -DGRUB_CONFIG="%{_sysconfdir}/default/grub" \
             -DGRUB_MEMTEST="%{_sysconfdir}/grub.d/20_memtest86+" \
             -DGRUB_CONFIGDIR="%{_sysconfdir}/grub.d" \
-            -DGRUB_SECURITY="01_header_passwd" || cat /CMakeOutput.log
+            -DGRUB_SECURITY="01_header_passwd" || cat /CMakeFiles/CMakeOutput.log
 
 %build
 %ninja -C build
