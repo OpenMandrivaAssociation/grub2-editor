@@ -3,7 +3,7 @@
 Summary:	Grub2 editor
 Name:		grub2-editor
 Version:	0.8.1
-Release:	2
+Release:	3
 License:	GPLv2
 Group:		Graphical desktop/KDE
 URL:		https://github.com/maz-1/grub2-editor
@@ -33,17 +33,18 @@ Unofficial KF5 port.
 
 %prep
 %autosetup -p1
-%cmake_kde5 -DGRUB_INSTALL_EXE="%{_sbindir}/grub2-install" \
-	    -DGRUB_MKCONFIG_EXE="%{_sbindir}/grub2-mkconfig" \
-            -DGRUB_PROBE_EXE="%{_sbindir}/grub2-probe" \
-            -DGRUB_SET_DEFAULT_EXE="%{_sbindir}/grub2-set-default" \
-            -DGRUB_MAKE_PASSWD_EXE="%{_bindir}/grub2-mkpasswd-pbkdf2" \
-            -DGRUB_MENU="/boot/grub2/grub.cfg" \
-            -DGRUB_ENV="/boot/grub2/grubenv" \
-            -DGRUB_CONFIG="%{_sysconfdir}/default/grub" \
-            -DGRUB_MEMTEST="%{_sysconfdir}/grub.d/20_memtest86+" \
-            -DGRUB_CONFIGDIR="%{_sysconfdir}/grub.d" \
-            -DGRUB_SECURITY="01_header_passwd" || cat /CMakeFiles/CMakeOutput.log
+%cmake_kde5 \
+	-DGRUB_INSTALL_EXE="%{_sbindir}/grub2-install" \
+	-DGRUB_MKCONFIG_EXE="%{_sbindir}/grub2-mkconfig" \
+	-DGRUB_PROBE_EXE="%{_sbindir}/grub2-probe" \
+	-DGRUB_SET_DEFAULT_EXE="%{_sbindir}/grub2-set-default" \
+	-DGRUB_MAKE_PASSWD_EXE="%{_bindir}/grub2-mkpasswd-pbkdf2" \
+	-DGRUB_MENU="/boot/grub2/grub.cfg" \
+	-DGRUB_ENV="/boot/grub2/grubenv" \
+	-DGRUB_CONFIG="%{_sysconfdir}/default/grub" \
+	-DGRUB_MEMTEST="%{_sysconfdir}/grub.d/20_memtest86+" \
+	-DGRUB_CONFIGDIR="%{_sysconfdir}/grub.d" \
+	-DGRUB_SECURITY="01_header_passwd" || cat build//CMakeFiles/CMakeOutput.log
 
 %build
 %ninja -C build
