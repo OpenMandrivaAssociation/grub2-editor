@@ -21,6 +21,7 @@ BuildRequires:	cmake(KF5Auth)
 BuildRequires:	cmake(KF5ConfigWidgets)
 BuildRequires:	cmake(KF5KIO)
 BuildRequires:	cmake(KF5Solid)
+BuildRequires:	cmake(packagekitqt5)
 BuildRequires:	grub2
 BuildRequires:	grub2-extra
 Requires:	grub2-extra
@@ -44,7 +45,7 @@ Unofficial KF5 port.
 	-DGRUB_CONFIG="%{_sysconfdir}/default/grub" \
 	-DGRUB_MEMTEST="%{_sysconfdir}/grub.d/20_memtest86+" \
 	-DGRUB_CONFIGDIR="%{_sysconfdir}/grub.d" \
-	-DGRUB_SECURITY="01_header_passwd" || cat build//CMakeFiles/CMakeOutput.log
+	-DGRUB_SECURITY="01_header_passwd" || cat build/CMakeFiles/CMakeOutput.log
 
 %build
 %ninja -C build
