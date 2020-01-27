@@ -41,11 +41,14 @@ Unofficial KF5 port.
 	-DGRUB_SET_DEFAULT_EXE="%{_sbindir}/grub2-set-default" \
 	-DGRUB_MAKE_PASSWD_EXE="%{_bindir}/grub2-mkpasswd-pbkdf2" \
 	-DGRUB_MENU="/boot/grub2/grub.cfg" \
-	-DGRUB_ENV="/boot/grub2/grubenv" \
+	-DGRUB_MENU_CUSTOM="/boot/grub2/custom.cfg" \
 	-DGRUB_CONFIG="%{_sysconfdir}/default/grub" \
+	-DGRUB_ENV="/boot/grub2/grubenv" \
 	-DGRUB_MEMTEST="%{_sysconfdir}/grub.d/20_memtest86+" \
 	-DGRUB_CONFIGDIR="%{_sysconfdir}/grub.d" \
-	-DGRUB_SECURITY="01_header_passwd" || cat CMakeFiles/CMakeOutput.log
+	-DGRUB_SECURITY="01_header_passwd" \
+	-DGRUB_RMECHO="99_rmecho" \
+	|| cat CMakeFiles/CMakeOutput.log
 
 %build
 %ninja -C build
@@ -56,10 +59,12 @@ Unofficial KF5 port.
 %find_lang kcm-grub2
 
 %files -f kcm-grub2.lang
-%{_sysconfdir}/dbus-1/system.d/org.kde.kcontrol.kcmgrub2.conf
 %{_libdir}/libexec/kauth/kcmgrub2helper
 %{_libdir}/qt5/plugins/kcm_grub2.so
-%{_datadir}/applications/kcm-grub2
 %{_datadir}/dbus-1/system-services/org.kde.kcontrol.kcmgrub2.service
 %{_datadir}/kservices5/kcm_grub2.desktop
 %{_datadir}/polkit-1/actions/org.kde.kcontrol.kcmgrub2.policy
+%{_sysconfdir}/grub.d/99_rmecho
+%{_datadir}/dbus-1/system.d/org.kde.kcontrol.kcmgrub2.conf
+%{_datadir}/icons/hicolor/scalable/apps/grub2-editor.svg
+%{_datadir}/kcm-grub2
