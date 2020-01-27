@@ -3,7 +3,7 @@
 Summary:	Grub2 editor
 Name:		grub2-editor
 Version:	0.8.1
-Release:	3
+Release:	4
 License:	GPLv2
 Group:		Graphical desktop/KDE
 URL:		https://github.com/maz-1/grub2-editor
