@@ -3,7 +3,7 @@
 Summary:	Grub2 editor
 Name:		grub2-editor
 Version:	0.8.1
-Release:	4
+Release:	5
 License:	GPLv2
 Group:		Graphical desktop/KDE
 URL:		https://github.com/maz-1/grub2-editor
@@ -25,6 +25,7 @@ BuildRequires:	cmake(packagekitqt5)
 BuildRequires:	grub2 grub2-efi
 BuildRequires:	grub2-extra
 Requires:	grub2-extra
+Requires:	grub2
 Obsoletes:	kcm-grub2 <= 0.6.4-8
 Provides:	kcm-grub2 = 0.6.4-9
 
